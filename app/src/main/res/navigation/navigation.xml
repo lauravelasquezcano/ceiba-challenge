@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/fragment_users">
+
+    <fragment
+        android:id="@+id/fragment_users"
+        android:name="com.lauravelasquezcano.ceiba.app.ui.main.users.UsersFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:layout="@layout/fragment_users">
+
+        <action
+            android:id="@+id/action_go_to_posts_fragment"
+            app:destination="@+id/fragment_posts"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragment_posts"
+        android:name="com.lauravelasquezcano.ceiba.app.ui.main.posts.PostsFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:layout="@layout/fragment_posts">
+
+        <action
+            android:id="@+id/action_go_to_users_fragment"
+            app:destination="@+id/fragment_users"/>
+    </fragment>
+
+</navigation>
