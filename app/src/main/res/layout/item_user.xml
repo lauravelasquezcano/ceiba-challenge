@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/margin_10dp"
+    android:elevation="@dimen/elevation_5dp"
+    app:cardCornerRadius="@dimen/radius_10dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="@dimen/margin_10dp">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tvUserName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:textColor="@color/teal_500"
+            android:textSize="@dimen/size_22sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Laura Velásquez Cano" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivTelephone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_10dp"
+            app:layout_constraintBottom_toTopOf="@+id/ivEmail"
+            app:layout_constraintEnd_toStartOf="@+id/tvTelephone"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvUserName"
+            app:srcCompat="@drawable/ic_telephone" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tvTelephone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_4dp"
+            android:textColor="@color/grey_600"
+            android:textSize="@dimen/size_17sp"
+            app:layout_constraintBottom_toBottomOf="@+id/ivTelephone"
+            app:layout_constraintStart_toEndOf="@+id/ivTelephone"
+            app:layout_constraintTop_toTopOf="@+id/ivTelephone"
+            tools:text="3014825608" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivEmail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_10dp"
+            app:layout_constraintBottom_toTopOf="@+id/tvSeePosts"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ivTelephone"
+            app:srcCompat="@drawable/ic_email" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tvEmail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_4dp"
+            android:textColor="@color/grey_600"
+            android:textSize="@dimen/size_17sp"
+            app:layout_constraintBottom_toBottomOf="@+id/ivEmail"
+            app:layout_constraintStart_toEndOf="@+id/ivEmail"
+            app:layout_constraintTop_toTopOf="@+id/ivEmail"
+            tools:text="laura.velasquez.cano@gmail.com" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tvSeePosts"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_20dp"
+            android:layout_marginEnd="@dimen/margin_10dp"
+            android:text="@string/see_posts"
+            android:textAllCaps="true"
+            android:textColor="@color/teal_500"
+            android:textSize="@dimen/size_17sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ivEmail" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>
