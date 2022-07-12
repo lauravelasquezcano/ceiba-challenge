@@ -4,8 +4,10 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Lau/Android/ceiba-challenge/app/src/main/res/layout/activity_main.xml" value="0.16197916666666667" />
-        <entry key="..\:/Lau/Android/ceiba-challenge/app/src/main/res/layout/fragment_users.xml" value="0.17604166666666668" />
-        <entry key="..\:/Lau/Android/ceiba-challenge/app/src/main/res/layout/item_user.xml" value="0.29010416666666666" />
+        <entry key="..\:/Lau/Android/ceiba-challenge/app/src/main/res/layout/fragment_posts.xml" value="0.24947916666666667" />
+        <entry key="..\:/Lau/Android/ceiba-challenge/app/src/main/res/layout/fragment_users.xml" value="0.6" />
+        <entry key="..\:/Lau/Android/ceiba-challenge/app/src/main/res/layout/item_post.xml" value="0.2625" />
+        <entry key="..\:/Lau/Android/ceiba-challenge/app/src/main/res/layout/item_user.xml" value="0.1" />
       </map>
     </option>
   </component>

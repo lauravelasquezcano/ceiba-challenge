@@ -5,4 +5,7 @@
     <string name="search_user_hint">Buscar usuario</string>
     <string name="empty_list">List is empty</string>
     <string name="see_posts">Ver publicaciones</string>
+
+    <!-- Posts -->
+    <string name="posts_title">Publicaciones</string>
 </resources>
