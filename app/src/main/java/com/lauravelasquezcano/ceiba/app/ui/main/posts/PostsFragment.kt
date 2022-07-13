@@ -6,7 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.lauravelasquezcano.ceiba.databinding.FragmentPostsBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class PostsFragment : Fragment() {
 
     private var _binding: FragmentPostsBinding? = null

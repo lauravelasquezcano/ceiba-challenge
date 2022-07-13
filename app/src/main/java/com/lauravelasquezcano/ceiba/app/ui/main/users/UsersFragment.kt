@@ -6,7 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.lauravelasquezcano.ceiba.databinding.FragmentUsersBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class UsersFragment : Fragment() {
 
     private var _binding: FragmentUsersBinding? = null

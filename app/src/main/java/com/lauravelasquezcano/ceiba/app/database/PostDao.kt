@@ -8,7 +8,7 @@ import androidx.room.Query
 interface PostDao {
 
     @Insert
-    fun insertAll(posts: List<Post>): List<Long>
+    fun insertAll(posts: List<Post>)
 
     @Query("SELECT * FROM post WHERE userId = :userId")
     fun getPostsByUserId(userId: Int): List<Post>

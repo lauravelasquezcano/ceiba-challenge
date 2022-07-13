@@ -4,6 +4,6 @@ import com.lauravelasquezcano.ceiba.app.database.Post
 
 interface PostDataSource {
 
-    fun insertAll(posts: List<Post>): List<Long>
+    fun insertAll(posts: List<Post>)
     fun getPostsByUserId(userId: Int): List<Post>
 }

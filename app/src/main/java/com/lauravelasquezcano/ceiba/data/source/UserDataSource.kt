@@ -4,6 +4,6 @@ import com.lauravelasquezcano.ceiba.app.database.User
 
 interface UserDataSource {
 
-    fun insertAll(users: List<User>): List<Long>
+    fun insertAll(users: List<User>)
     fun getAllUsers(): List<User>
 }
