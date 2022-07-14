@@ -1,6 +1,6 @@
 package com.lauravelasquezcano.ceiba.app.mappers
 
-import com.lauravelasquezcano.ceiba.domain.*
+import com.lauravelasquezcano.ceiba.domain.model.*
 import com.lauravelasquezcano.ceiba.app.database.Post as DbPost
 import com.lauravelasquezcano.ceiba.app.database.User as DbUser
 
@@ -15,7 +15,7 @@ fun User.toDbUser(): DbUser =
         address.city,
         address.zipcode,
         address.geo.lat,
-        address.geo.long,
+        address.geo.lng,
         phone,
         website,
         company.name,
@@ -36,7 +36,7 @@ fun DbUser.toUser(): User =
             zipcode,
             Geo(
                 lat,
-                lon
+                lng
             )
         ),
         phone,

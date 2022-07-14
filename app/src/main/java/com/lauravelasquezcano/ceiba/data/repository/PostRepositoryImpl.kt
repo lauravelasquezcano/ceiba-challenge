@@ -1,15 +1,23 @@
 package com.lauravelasquezcano.ceiba.data.repository
 
+import com.lauravelasquezcano.ceiba.app.mappers.toDbPost
+import com.lauravelasquezcano.ceiba.app.mappers.toPost
+import com.lauravelasquezcano.ceiba.data.remote.ApiServices
+import com.lauravelasquezcano.ceiba.data.source.PostDataSource
 import com.lauravelasquezcano.ceiba.data.source.PostRepository
-import com.lauravelasquezcano.ceiba.domain.Post
+import com.lauravelasquezcano.ceiba.domain.model.Post
+import javax.inject.Inject
 
-class PostRepositoryImpl : PostRepository {
+class PostRepositoryImpl @Inject constructor(
+    private val apiServices: ApiServices,
+    private val postDataSource: PostDataSource
+) : PostRepository {
 
-    override fun getPosts(userId: Int): List<Post> {
-        TODO("Not yet implemented")
-    }
-
-    override fun savePosts(posts: List<com.lauravelasquezcano.ceiba.app.database.Post>) {
-        TODO("Not yet implemented")
+    override suspend fun getPosts(userId: Int): List<Post> {
+        if (postDataSource.isEmpty()) {
+            val posts = apiServices.getPostsByUserId(userId.toString()).body()?.posts
+            postDataSource.insertAll(posts!!.map { it.toDbPost() })
+        }
+        return postDataSource.getPostsByUserId(userId).map { it.toPost() }
     }
 }

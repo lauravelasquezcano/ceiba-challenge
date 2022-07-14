@@ -15,7 +15,7 @@ data class User(
     val city: String,
     val zipcode: String,
     val lat: String,
-    val lon: String,
+    val lng: String,
     val phone: String,
     val website: String,
     val companyName: String,

@@ -1,4 +1,4 @@
-package com.lauravelasquezcano.ceiba.domain
+package com.lauravelasquezcano.ceiba.domain.model
 
 data class Post(
     val id: String,

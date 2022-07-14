@@ -4,6 +4,7 @@ import com.lauravelasquezcano.ceiba.app.database.User
 
 interface UserDataSource {
 
+    fun isEmpty(): Boolean
     fun insertAll(users: List<User>)
     fun getAllUsers(): List<User>
 }

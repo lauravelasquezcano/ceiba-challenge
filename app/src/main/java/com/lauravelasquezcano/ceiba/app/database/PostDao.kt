@@ -12,4 +12,7 @@ interface PostDao {
 
     @Query("SELECT * FROM post WHERE userId = :userId")
     fun getPostsByUserId(userId: Int): List<Post>
+
+    @Query("SELECT COUNT(id) FROM post")
+    fun userCount(): Int
 }

@@ -1,4 +1,4 @@
-package com.lauravelasquezcano.ceiba.domain
+package com.lauravelasquezcano.ceiba.domain.model
 
 import com.google.gson.annotations.SerializedName
 
@@ -24,7 +24,7 @@ data class Address(
 
 data class Geo(
     val lat: String,
-    val long: String
+    val lng: String
 )
 
 data class Company(

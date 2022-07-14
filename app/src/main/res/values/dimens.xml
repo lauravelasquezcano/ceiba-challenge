@@ -13,6 +13,7 @@
 
     <!-- Size -->
     <dimen name="size_0dp">0dp</dimen>
+    <dimen name="size_100dp">100dp</dimen>
 
     <!-- Elevation -->
     <dimen name="elevation_5dp">5dp</dimen>
