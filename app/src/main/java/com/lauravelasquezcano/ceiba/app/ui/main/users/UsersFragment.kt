@@ -1,11 +1,17 @@
 package com.lauravelasquezcano.ceiba.app.ui.main.users
 
+import android.app.AlertDialog
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
+import android.view.ContextMenu
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.lauravelasquezcano.ceiba.R
 import com.lauravelasquezcano.ceiba.app.ui.model.GetUsersState
 import com.lauravelasquezcano.ceiba.app.ui.utils.ProgressDialog
 import com.lauravelasquezcano.ceiba.databinding.FragmentUsersBinding
@@ -38,6 +44,7 @@ class UsersFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initConfiguration()
+        setupWatcher()
         startObserver()
         getUsers()
     }
@@ -50,6 +57,20 @@ class UsersFragment : Fragment() {
     private fun initConfiguration() {
         progressDialog = ProgressDialog(requireContext())
         initRecyclerView()
+    }
+
+    private fun setupWatcher() {
+        binding.etSearchUser.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+            }
+
+            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                usersViewModel.getUsersByName(p0.toString())
+            }
+
+            override fun afterTextChanged(p0: Editable?) {
+            }
+        })
     }
 
     private fun initRecyclerView() {
@@ -72,6 +93,10 @@ class UsersFragment : Fragment() {
                 }
                 GetUsersState.Failure -> {
                     progressDialog.hideProgress()
+                    showMessageDialog(getString(R.string.service_error))
+                }
+                GetUsersState.EmptySearch -> {
+                    showEmptyState()
                 }
             }
 
@@ -109,5 +134,14 @@ class UsersFragment : Fragment() {
 
     private fun getUsers() {
         usersViewModel.getUsers()
+    }
+
+    private fun showMessageDialog(message: String) {
+        val messageDialog = AlertDialog.Builder(requireContext())
+        messageDialog.setMessage(message)
+        messageDialog.setNeutralButton(
+            getString(R.string.btn_ok)
+        ) { dialog, _ -> dialog.dismiss() }
+        messageDialog.show()
     }
 }

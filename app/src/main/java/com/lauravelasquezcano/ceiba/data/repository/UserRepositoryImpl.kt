@@ -20,4 +20,7 @@ class UserRepositoryImpl @Inject constructor(
         }
         return userDataSource.getAllUsers().map { it.toUser() }
     }
+
+    override suspend fun getUsersByName(name: String): List<User> =
+        userDataSource.getUsersByName(name).map { it.toUser() }
 }

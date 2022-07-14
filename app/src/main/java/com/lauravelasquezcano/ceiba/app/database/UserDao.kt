@@ -16,4 +16,7 @@ interface UserDao {
 
     @Query("SELECT COUNT(id) FROM user")
     fun userCount(): Int
+
+    @Query("SELECT * FROM user WHERE name LIKE :name")
+    fun getUsersByName(name: String): List<User>
 }

@@ -7,4 +7,5 @@ sealed class GetUsersState {
     object Loading : GetUsersState()
     data class Success(val users: List<User>) : GetUsersState()
     object Failure : GetUsersState()
+    object EmptySearch : GetUsersState()
 }

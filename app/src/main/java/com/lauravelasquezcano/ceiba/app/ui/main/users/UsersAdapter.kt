@@ -10,10 +10,12 @@ import javax.inject.Inject
 class UsersAdapter @Inject constructor() :
     RecyclerView.Adapter<UsersAdapter.UsersViewHolder>() {
 
-    private lateinit var data: List<User>
+    private var data: MutableList<User> = mutableListOf()
 
     fun setData(usersList: List<User>) {
-        data = usersList
+        data.clear()
+        data.addAll(usersList)
+        notifyDataSetChanged()
     }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UsersViewHolder =
         UsersViewHolder(

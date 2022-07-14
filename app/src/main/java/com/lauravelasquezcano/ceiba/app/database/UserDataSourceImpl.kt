@@ -9,4 +9,9 @@ class UserDataSourceImpl(private val dao: UserDao): UserDataSource {
     override fun insertAll(users: List<User>) = dao.insertAll(users)
 
     override fun getAllUsers(): List<User> = dao.getAllUsers()
+
+    override fun getUsersByName(name: String): List<User> {
+        val users = dao.getUsersByName("%$name%")
+        return users
+    }
 }

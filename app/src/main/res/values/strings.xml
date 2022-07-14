@@ -5,7 +5,11 @@
     <string name="search_user_hint">Buscar usuario</string>
     <string name="empty_list">List is empty</string>
     <string name="see_posts">Ver publicaciones</string>
+    <string name="service_error">Ha ocurrido un error con el servicio. Inténtelo de nuevo más tarde.</string>
 
     <!-- Posts -->
     <string name="posts_title">Publicaciones</string>
+
+    <!-- MessageDialog -->
+    <string name="btn_ok">OK</string>
 </resources>
