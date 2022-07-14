@@ -19,4 +19,7 @@ interface UserDao {
 
     @Query("SELECT * FROM user WHERE name LIKE :name")
     fun getUsersByName(name: String): List<User>
+
+    @Query("SELECT * FROM user WHERE id = :userId")
+    fun getUserById(userId: Int): User?
 }

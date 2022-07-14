@@ -8,4 +8,5 @@ interface UserDataSource {
     fun insertAll(users: List<User>)
     fun getAllUsers(): List<User>
     fun getUsersByName(name: String): List<User>
+    fun getUserById(userId: Int): User?
 }

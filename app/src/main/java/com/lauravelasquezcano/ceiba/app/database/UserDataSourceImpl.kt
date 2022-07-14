@@ -2,7 +2,7 @@ package com.lauravelasquezcano.ceiba.app.database
 
 import com.lauravelasquezcano.ceiba.data.source.UserDataSource
 
-class UserDataSourceImpl(private val dao: UserDao): UserDataSource {
+class UserDataSourceImpl(private val dao: UserDao) : UserDataSource {
 
     override fun isEmpty(): Boolean = dao.userCount() <= 0
 
@@ -10,8 +10,8 @@ class UserDataSourceImpl(private val dao: UserDao): UserDataSource {
 
     override fun getAllUsers(): List<User> = dao.getAllUsers()
 
-    override fun getUsersByName(name: String): List<User> {
-        val users = dao.getUsersByName("%$name%")
-        return users
-    }
+    override fun getUsersByName(name: String): List<User> = dao.getUsersByName("%$name%")
+
+    override fun getUserById(userId: Int): User? = dao.getUserById(userId)
+
 }

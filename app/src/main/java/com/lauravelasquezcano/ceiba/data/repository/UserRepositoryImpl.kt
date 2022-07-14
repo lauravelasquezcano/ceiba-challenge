@@ -23,4 +23,7 @@ class UserRepositoryImpl @Inject constructor(
 
     override suspend fun getUsersByName(name: String): List<User> =
         userDataSource.getUsersByName(name).map { it.toUser() }
+
+    override suspend fun getUserById(userId: Int): User? =
+        userDataSource.getUserById(userId)?.toUser()
 }
