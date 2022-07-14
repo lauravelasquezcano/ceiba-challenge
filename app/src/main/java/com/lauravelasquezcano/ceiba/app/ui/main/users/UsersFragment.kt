@@ -10,6 +10,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.lauravelasquezcano.ceiba.R
 import com.lauravelasquezcano.ceiba.app.ui.model.GetUsersState
@@ -79,6 +80,10 @@ class UsersFragment : Fragment() {
             setHasFixedSize(true)
             adapter = this@UsersFragment.adapter
         }
+
+        adapter.onUserClicked = { userId ->
+            goToPosts(userId)
+        }
     }
 
     private fun startObserver() {
@@ -106,9 +111,7 @@ class UsersFragment : Fragment() {
     private fun handleUserList(users: List<User>) {
         if (users.isNotEmpty()) {
             showRecyclerView()
-            adapter?.let {
-                it.setData(users)
-            }
+            adapter.setData(users)
         } else {
             showEmptyState()
         }
@@ -143,5 +146,10 @@ class UsersFragment : Fragment() {
             getString(R.string.btn_ok)
         ) { dialog, _ -> dialog.dismiss() }
         messageDialog.show()
+    }
+
+    private fun goToPosts(userId: String) {
+        Navigation.findNavController(requireView())
+            .navigate(UsersFragmentDirections.actionGoToPostsFragment(userId.toInt()))
     }
 }

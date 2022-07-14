@@ -27,6 +27,10 @@
         <action
             android:id="@+id/action_go_to_users_fragment"
             app:destination="@+id/fragment_users"/>
+
+        <argument
+            android:name="userId"
+            app:argType="integer"/>
     </fragment>
 
 </navigation>

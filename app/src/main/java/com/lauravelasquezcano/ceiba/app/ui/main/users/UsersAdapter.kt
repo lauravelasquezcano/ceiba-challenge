@@ -12,6 +12,8 @@ class UsersAdapter @Inject constructor() :
 
     private var data: MutableList<User> = mutableListOf()
 
+    var onUserClicked: ((String) -> Unit)? = null
+
     fun setData(usersList: List<User>) {
         data.clear()
         data.addAll(usersList)
@@ -29,17 +31,25 @@ class UsersAdapter @Inject constructor() :
     override fun onBindViewHolder(holder: UsersViewHolder, position: Int) {
         val user = data[position]
         holder.bind(user)
+        holder.initListener(user)
     }
 
     override fun getItemCount(): Int = data.size
 
     inner class UsersViewHolder(private val binding: ItemUserBinding) :
         RecyclerView.ViewHolder(binding.root) {
+
         fun bind(user: User) {
             with(binding) {
                 tvUserName.text = user.name
                 tvTelephone.text = user.phone
                 tvEmail.text = user.email
+            }
+        }
+
+        fun initListener(user: User) {
+            binding.tvSeePosts.setOnClickListener {
+                onUserClicked?.invoke(user.id)
             }
         }
     }
