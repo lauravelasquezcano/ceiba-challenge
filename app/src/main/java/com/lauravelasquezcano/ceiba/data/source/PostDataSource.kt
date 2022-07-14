@@ -4,7 +4,7 @@ import com.lauravelasquezcano.ceiba.app.database.Post
 
 interface PostDataSource {
 
-    fun isEmpty(): Boolean
+    fun isEmpty(userId: Int): Boolean
     fun insertAll(posts: List<Post>)
     fun getPostsByUserId(userId: Int): List<Post>
 }

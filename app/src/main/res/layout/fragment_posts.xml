@@ -69,11 +69,12 @@
         android:text="@string/posts_title"
         android:textColor="@color/teal_500"
         android:textSize="@dimen/size_22sp"
+        app:layout_constraintBottom_toTopOf="@id/rvPosts"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ivEmail" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvUsers"
+        android:id="@+id/rvPosts"
         android:layout_width="@dimen/size_0dp"
         android:layout_height="@dimen/size_0dp"
         android:layout_marginVertical="@dimen/margin_10dp"

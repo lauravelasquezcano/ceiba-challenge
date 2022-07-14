@@ -2,6 +2,7 @@ package com.lauravelasquezcano.ceiba.app.di.module
 
 import com.lauravelasquezcano.ceiba.app.ui.main.posts.PostsViewModel
 import com.lauravelasquezcano.ceiba.app.ui.main.users.UsersViewModel
+import com.lauravelasquezcano.ceiba.domain.usecase.GetPostsByUserUseCase
 import com.lauravelasquezcano.ceiba.domain.usecase.GetUserByIdUseCase
 import com.lauravelasquezcano.ceiba.domain.usecase.GetUsersByNameUseCase
 import com.lauravelasquezcano.ceiba.domain.usecase.GetUsersUseCase
@@ -19,6 +20,6 @@ object ViewModelsModule {
         UsersViewModel(getUsersUseCase, getUsersByNameUseCase)
 
     @Provides
-    fun providesPostsViewModel(getUserByIdUseCase: GetUserByIdUseCase) =
-        PostsViewModel(getUserByIdUseCase)
+    fun providesPostsViewModel(getUserByIdUseCase: GetUserByIdUseCase, getPostsByUserUseCase: GetPostsByUserUseCase) =
+        PostsViewModel(getUserByIdUseCase, getPostsByUserUseCase)
 }

@@ -14,8 +14,8 @@ class PostRepositoryImpl @Inject constructor(
 ) : PostRepository {
 
     override suspend fun getPosts(userId: Int): List<Post> {
-        if (postDataSource.isEmpty()) {
-            val posts = apiServices.getPostsByUserId(userId.toString()).body()?.posts
+        if (postDataSource.isEmpty(userId)) {
+            val posts = apiServices.getPostsByUserId(userId.toString()).body()
             postDataSource.insertAll(posts!!.map { it.toDbPost() })
         }
         return postDataSource.getPostsByUserId(userId).map { it.toPost() }
